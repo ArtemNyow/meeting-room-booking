@@ -12,20 +12,28 @@ type AuthGuardProps = {
 export default function AuthGuard({ children }: AuthGuardProps) {
   const router = useRouter();
   const pathname = usePathname();
+  const isPublicRoute =
+    pathname === "/login" || pathname === "/register" || pathname === "/";
 
   useEffect(() => {
-    const isPublicRoute = pathname === "/login" || pathname === "/register";
+    const token = getToken();
 
     if (isPublicRoute) {
+      if (token && pathname !== "/") {
+        router.replace("/rooms");
+      }
+
+      if (!token && pathname === "/") {
+        router.replace("/login");
+      }
+
       return;
     }
 
-    if (!getToken()) {
+    if (!token) {
       router.replace("/login");
     }
-  }, [pathname, router]);
-
-  const isPublicRoute = pathname === "/login" || pathname === "/register";
+  }, [isPublicRoute, pathname, router]);
 
   if (!isPublicRoute && typeof window !== "undefined" && !getToken()) {
     return null;

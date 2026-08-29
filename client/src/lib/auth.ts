@@ -19,3 +19,7 @@ export const removeToken = (): void => {
 export const isAuthenticated = (): boolean => {
   return Boolean(getToken());
 };
+
+export const logout = (): void => {
+  removeToken();
+};

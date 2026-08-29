@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import "./globals.css";
+
 import QueryProvider from "@/providers/QueryProvider";
 import AuthGuard from "@/components/AuthGuard";
 
@@ -15,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-slate-950 text-slate-100 antialiased">
         <QueryProvider>
           <AuthGuard>{children}</AuthGuard>
         </QueryProvider>
