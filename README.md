@@ -383,14 +383,4 @@ curl -X POST http://localhost:5000/api/rooms/1/bookings \
 - **Адаптивний дизайн** - Responsive на всіх пристроях
 - **Мінімалістичний UI** - Простий та інтуїтивний
 
-## 📋 Вимоги завдання
 
-Див. [REQUIREMENTS_CHECKLIST.md](REQUIREMENTS_CHECKLIST.md) для детальної перевірки всіх функціональних вимог та їх реалізації.
-
-## 👤 Автор
-
-Vlad
-
-## 📄 Ліцензія
-
-MIT
