@@ -128,6 +128,19 @@ export const updateRoom = async (
         description: data.description.trim() || null,
       }),
     },
+    include: {
+      members: {
+        include: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+            },
+          },
+        },
+      },
+    },
   });
 };
 
